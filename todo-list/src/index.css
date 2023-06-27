@@ -114,12 +114,14 @@ input {
   flex-wrap: wrap;
   gap: 15px;
 }
+
 .task {
   background: white;
   border: 1px solid gray;
   border-left: 10px solid orangered;
   border-radius: 5px;
   padding: 1rem;
+  width: 500px;
 }
 
 .task-header {
