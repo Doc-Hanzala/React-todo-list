@@ -4,6 +4,12 @@ const TaskList = ({ taskList, setTaskList }) => {
   const handleDelete = () => {
     setTaskList([]);
   };
+
+  const handleDeleteSingle = (id) => {
+    const updatedTaskList = taskList.filter((task) => task.id !== id);
+    setTaskList(updatedTaskList);
+  };
+
   return (
     <div className="task-list">
       <div className="taskList-header">
@@ -15,12 +21,14 @@ const TaskList = ({ taskList, setTaskList }) => {
       <div className="tasks">
         {taskList.map((task) => {
           return (
-            <div className="task">
+            <div key={task.id} className="task">
               <div className="task-header">
                 <h3>{task.name}</h3>
                 <div className="icons">
-                  <AiFillDelete className="delete" />
-                  <AiFillEdit className="edit" />
+                  <AiFillDelete
+                    onClick={() => handleDeleteSingle(task.id)}
+                    className="delete"
+                  />
                 </div>
               </div>
               <p>{task.time}</p>

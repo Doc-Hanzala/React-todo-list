@@ -1,6 +1,7 @@
 const AddTask = ({ taskList, setTaskList }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const date = new Date().getMilliseconds();
     const newTask = {
       id: date,
